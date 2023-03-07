@@ -77,6 +77,20 @@
           "value": "en-US"
         }
       ]
+    },
+    {
+      "name": "apikey",
+      "type": "password",
+      "description": "Input your apikey",
+      "required": true,
+      "title": "ApiKey"
+    },
+    {
+      "name": "apisecret",
+      "type": "password",
+      "description": "Input your apisecret",
+      "required": true,
+      "title": "ApiSecret"
     }
   ],
   "dependencies": {

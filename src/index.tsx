@@ -17,8 +17,8 @@ export default function Command() {
         'prompt': e,
         'lang': preferences.language,
         'locale': preferences.comment,
-        'apikey': '',
-        'apisecret': '',
+        'apikey': preferences.apikey,
+        'apisecret': preferences.apisecret,
       }
     })
     setResult(`\`\`\`js
