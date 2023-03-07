@@ -1,27 +1,123 @@
 {
   "$schema": "https://www.raycast.com/schemas/extension.json",
-  "name": "codegeex-explanation",
-  "title": "codegeex-explanation",
-  "description": "codegeex code explanation",
+  "name": "codegeex",
+  "title": "codegeex",
+  "description": "codegeex AI code tools",
   "icon": "command-icon.png",
   "author": "MBearo",
   "license": "MIT",
   "commands": [
     {
-      "name": "index",
-      "title": "codegeex code explanation",
-      "description": "codegeex code explanation",
+      "name": "generate",
+      "title": "Generate",
+      "description": "Generate code based on description",
+      "mode": "view"
+    },
+    {
+      "name": "translate",
+      "title": "Translate",
+      "description": "Translate the selected code",
+      "mode": "view",
+      "preferences": [
+        {
+          "name": "targetLanguage",
+          "type": "dropdown",
+          "description": "Select the target language you want to use",
+          "required": true,
+          "title": "Target Language",
+          "default": "Go",
+          "data": [
+            {
+              "title": "Python",
+              "value": "Python"
+            },
+            {
+              "title": "Go",
+              "value": "GO"
+            },
+            {
+              "title": "Java",
+              "value": "Java"
+            },
+            {
+              "title": "JavaScript",
+              "value": "JavaScript"
+            },
+            {
+              "title": "C++",
+              "value": "C++"
+            },
+            {
+              "title": "C#",
+              "value": "C#"
+            },
+            {
+              "title": "PHP",
+              "value": "PHP"
+            },
+            {
+              "title": "TypeScript",
+              "value": "TypeScript"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "explain",
+      "title": "Explain",
+      "description": "Add comments to the selected code",
+      "mode": "view",
+      "preferences": [
+        {
+          "name": "comment",
+          "type": "dropdown",
+          "description": "Select the comment language you want to use",
+          "required": true,
+          "title": "Comment Language",
+          "default": "Chinese",
+          "data": [
+            {
+              "title": "🇨🇳 Chinese",
+              "value": "zh-CN"
+            },
+            {
+              "title": "🇺🇸 English",
+              "value": "en-US"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "explainform",
+      "title": "Explain Form",
+      "description": "Add comments to the enter code",
       "mode": "view"
     }
   ],
   "preferences": [
     {
+      "name": "apikey",
+      "type": "password",
+      "description": "Input your apikey",
+      "required": true,
+      "title": "ApiKey"
+    },
+    {
+      "name": "apisecret",
+      "type": "password",
+      "description": "Input your apisecret",
+      "required": true,
+      "title": "ApiSecret"
+    },
+    {
       "name": "language",
       "type": "dropdown",
       "description": "Select the language you want to use",
       "required": true,
-      "title": "Language",
-      "default": "Javascript",
+      "title": "Main Language",
+      "default": "Python",
       "data": [
         {
           "value": "C++",
@@ -44,12 +140,20 @@
           "value": "Python"
         },
         {
+          "title": "HTML",
+          "value": "HTML"
+        },
+        {
+          "title": "PHP",
+          "value": "PHP"
+        },
+        {
           "title": "JavaScript",
           "value": "Javascript"
         },
         {
           "title": "TypeScript",
-          "value": "Typescript"
+          "value": "TypeScript"
         },
         {
           "title": "Go",
@@ -58,39 +162,24 @@
         {
           "title": "Rust",
           "value": "Rust"
-        }
-      ]
-    },{
-      "name": "comment",
-      "type": "dropdown",
-      "description": "Select the comment language you want to use",
-      "required": true,
-      "title": "Comment Language",
-      "default": "Chinese",
-      "data": [
-        {
-          "title": "Chinese",
-          "value": "zh-CN"
         },
         {
-          "title": "English",
-          "value": "en-US"
+          "title": "SQL",
+          "value": "SQL"
+        },
+        {
+          "title": "Kotlin",
+          "value": "Kotlin"
+        },
+        {
+          "title": "Fortran",
+          "value": "Fortran"
+        },
+        {
+          "title": "R",
+          "value": "R"
         }
       ]
-    },
-    {
-      "name": "apikey",
-      "type": "password",
-      "description": "Input your apikey",
-      "required": true,
-      "title": "ApiKey"
-    },
-    {
-      "name": "apisecret",
-      "type": "password",
-      "description": "Input your apisecret",
-      "required": true,
-      "title": "ApiSecret"
     }
   ],
   "dependencies": {
