@@ -1,3 +1,3 @@
-# raycast-codegeex-explanation
+# codegeex-raycast
 
-raycast codegeex code explanation
+codegeex-tools
