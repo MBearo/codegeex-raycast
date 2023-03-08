@@ -1,6 +1,6 @@
 import { Clipboard, showToast, Toast, getSelectedText } from "@raycast/api";
 import { useState, useEffect } from "react";
-export function useSelect({ onSearchTextChange, setCode }) {
+export function useSelect({ onSearchTextChange, setCode }: any) {
   // TODO 除了从select，还可以从剪切板
   const readSelectedText = async () => {
     try {
@@ -14,7 +14,7 @@ export function useSelect({ onSearchTextChange, setCode }) {
     readSelectedText();
   }, []);
 }
-export function useSearch({ generatePrompt, api }) {
+export function useSearch({ generatePrompt, api }: any) {
   const [code, setCode] = useState<string>("");
   const [rawCode, setRawCode] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -55,7 +55,7 @@ export function useSearch({ generatePrompt, api }) {
   };
   return { onSearchTextChange, code, rawCode, isLoading, setCode, setRawCode };
 }
-export async function onCopy({ rawCode }) {
+export async function onCopy({ rawCode }: { rawCode: string }) {
   if (rawCode.trim() === "") return;
   await Clipboard.copy(rawCode);
   await showToast({

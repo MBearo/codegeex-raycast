@@ -5,7 +5,7 @@ import { useSearch, onCopy, useSelect } from "./hooks";
 export default function Command() {
   const { onSearchTextChange, code, rawCode, isLoading, setCode } = useSearch({
     api: codeTranslateApi,
-    generatePrompt: (e) => e,
+    generatePrompt: (e: string) => e,
   });
   useSelect({ onSearchTextChange, setCode });
   const copy = () => onCopy({ rawCode });

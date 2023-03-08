@@ -30,7 +30,12 @@ export function codeExplainApi(prompt: string) {
     },
   });
 }
-export function codeExplainFormApi({ prompt, lang, locale }) {
+interface CodeExplainFormApiParams {
+  prompt: string;
+  lang: string;
+  locale: string;
+}
+export function codeExplainFormApi({ prompt, lang, locale }: CodeExplainFormApiParams) {
   const { apikey, apisecret } = getPreferenceValues();
   return axios({
     method: "post",
@@ -62,7 +67,12 @@ export function codeTranslateApi(prompt: string) {
     },
   });
 }
-export function codeTranslateFormApi({ prompt, source, target }) {
+interface CodeTranslateFormApiParams {
+  prompt: string;
+  source: string;
+  target: string;
+}
+export function codeTranslateFormApi({ prompt, source, target }: CodeTranslateFormApiParams) {
   const { apikey, apisecret } = getPreferenceValues();
   return axios({
     method: "post",
