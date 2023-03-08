@@ -1,6 +1,6 @@
 import { Detail } from "@raycast/api";
 import { codeExplainApi } from "./api";
-import { useSearch,useSelect } from "./hooks";
+import { useSearch, useSelect } from "./hooks";
 export default function Command() {
   const { onSearchTextChange, code, isLoading, setCode } = useSearch({
     api: codeExplainApi,

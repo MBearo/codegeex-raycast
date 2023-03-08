@@ -1,13 +1,13 @@
 import { ActionPanel, Action, Form, showToast, Toast } from "@raycast/api";
 import { useState } from "react";
-import { codeExplainFormApi } from "./api";
+import { codeTranslateFormApi } from "./api";
 
-const languageList = ["C++", "C", "C#", "Java", "Python", "Javascript", "TypeScript", "Go", "Rust"];
+const languageList = ["C++", "C#", "Java", "Python", "JavaScript", "TypeScript", "Go", "PHP"];
 
 export default function Command() {
   const [promptError, setPromptError] = useState<string | undefined>();
   const [result, setResult] = useState();
-  const onSubmit = async ({ prompt, lang, locale }: any) => {
+  const onSubmit = async ({ prompt, source, target }: any) => {
     if (prompt.length == 0) {
       setPromptError("The field should't be empty!");
       return;
@@ -17,8 +17,7 @@ export default function Command() {
       title: "Loading...",
     });
     try {
-      const res = await codeExplainFormApi({ prompt, lang, locale });
-      console.log("res", res.data);
+      const res = await codeTranslateFormApi({ prompt, source, target });
       if (res.data.status === 0) {
         toast.style = Toast.Style.Success;
         toast.title = "Success";
@@ -45,19 +44,15 @@ export default function Command() {
         </ActionPanel>
       }
     >
-      <Form.Dropdown id="lang" title="Language" defaultValue="Python">
+      <Form.Dropdown id="source" title="Source Language" defaultValue="Python">
         {languageList.map((v) => (
           <Form.Dropdown.Item value={v} title={v} key={v} />
         ))}
       </Form.Dropdown>
-      <Form.Dropdown id="locale" title="Comments Language" defaultValue="zh-CN">
-        <Form.Dropdown.Item value="en-US" title="English" icon="🇺🇸" />
-        <Form.Dropdown.Item value="zh-CN" title="Chinese" icon="🇨🇳" />
-      </Form.Dropdown>
       <Form.TextArea
         id="prompt"
         title="Source Code"
-        placeholder="Enter the code you want to add comments to"
+        placeholder="Enter the code you want to translate"
         error={promptError}
         onBlur={(event) => {
           if (event.target.value?.length == 0) {
@@ -68,12 +63,12 @@ export default function Command() {
         }}
       />
       <Form.Separator />
-      <Form.TextArea
-        value={result}
-        id="result"
-        title="Commented code"
-        placeholder="Press the ⌘⏎ to add comments to the code"
-      />
+      <Form.Dropdown id="target" title="Target Language" defaultValue="Go">
+        {languageList.map((v) => (
+          <Form.Dropdown.Item value={v} title={v} key={v} />
+        ))}
+      </Form.Dropdown>
+      <Form.TextArea value={result} id="result" title="Target Code" placeholder="Press the ⌘⏎ to translate the code" />
     </Form>
   );
 }

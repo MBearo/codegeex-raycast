@@ -2,7 +2,7 @@
   "$schema": "https://www.raycast.com/schemas/extension.json",
   "name": "codegeex",
   "title": "codegeex",
-  "description": "codegeex AI code tools",
+  "description": "CodeGeex AI code tools",
   "icon": "command-icon.png",
   "author": "MBearo",
   "license": "MIT",
@@ -62,6 +62,12 @@
           ]
         }
       ]
+    },
+    {
+      "name": "translateform",
+      "title": "Translate Form",
+      "description": "Translate the enter code",
+      "mode": "view"
     },
     {
       "name": "explain",

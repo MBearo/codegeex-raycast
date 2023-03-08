@@ -62,3 +62,19 @@ export function codeTranslateApi(prompt: string) {
     },
   });
 }
+export function codeTranslateFormApi({ prompt, source, target }) {
+  const { apikey, apisecret } = getPreferenceValues();
+  return axios({
+    method: "post",
+    url: "https://wudao.aminer.cn/os/api/api/v2/multilingual_code/translate",
+    data: {
+      dst_lang: target,
+      n: 1,
+      prompt,
+      src_lang: source,
+      stop: [],
+      apikey,
+      apisecret,
+    },
+  });
+}

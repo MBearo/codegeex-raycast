@@ -18,7 +18,6 @@ export default function Command() {
     });
     try {
       const res = await codeExplainFormApi({ prompt, lang, locale });
-      console.log("res", res.data);
       if (res.data.status === 0) {
         toast.style = Toast.Style.Success;
         toast.title = "Success";
@@ -71,7 +70,7 @@ export default function Command() {
       <Form.TextArea
         value={result}
         id="result"
-        title="Commented code"
+        title="Commented Code"
         placeholder="Press the ⌘⏎ to add comments to the code"
       />
     </Form>
