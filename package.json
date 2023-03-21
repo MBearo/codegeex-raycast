@@ -8,8 +8,8 @@
   "license": "MIT",
   "commands": [
     {
-      "name": "generate",
-      "title": "Generate",
+      "name": "generateform",
+      "title": "Generate Form",
       "description": "Generate code based on description",
       "mode": "view"
     },
